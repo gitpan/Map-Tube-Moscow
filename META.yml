@@ -1,5 +1,5 @@
 ---
-abstract: 'Interface to the Moscow Tube Map.'
+abstract: 'Interface to the Moscow Metro Map.'
 author:
   - 'Michal Spacek <skim@cpan.org>'
 build_requires:
@@ -29,7 +29,7 @@ no_index:
     - t
 requires:
   File::Share: 0
-  Map::Tube: '2.30'
+  Map::Tube: '2.41'
   Moo: 0
   namespace::clean: 0
   perl: 5.8.0
@@ -38,4 +38,4 @@ resources:
   homepage: https://github.com/tupinek/Map-Tube-Moscow
   license: http://opensource.org/licenses/artistic-license-2.0.php
   repository: git://github.com/tupinek/Map-Tube-Moscow
-version: '0.01'
+version: '0.02'

@@ -1,5 +1,5 @@
 NAME
-    Map::Tube::Moscow - Interface to the Moscow Tube Map.
+    Map::Tube::Moscow - Interface to the Moscow Metro Map.
 
 SYNOPSIS
      use Map::Tube::Moscow;
@@ -8,6 +8,7 @@ SYNOPSIS
      my $station = $obj->get_node_by_id($station_id);
      my $station = $obj->get_node_by_name($station_name);
      my $route = $obj->get_shortest_route($from, $to);
+     my $metro_name = $obj->name;
      my $xml_file = $obj->xml;
 
 DESCRIPTION
@@ -21,7 +22,7 @@ METHODS
     "new()"
              Constructor.
 
-    "get_all_routes($from, $to)"
+    "get_all_routes($from, $to)" [EXPERIMENTAL]
              Get all routes from station to station.
              Returns reference to array with Map::Tube::Route objects.
 
@@ -34,8 +35,12 @@ METHODS
              Returns Map::Tube::Node object.
 
     "get_shortest_route($from, $to)"
-             Get shortest route between $from and $to node name. Node name is case insensitive.
-             Returns back the node sequence in string.
+             Get shortest route between $from and $to node names. Node names in $from and $to are case insensitive.
+             Returns Map::Tube::Route object.
+
+    "name()"
+             Get metro name.
+             Returns string with metro name.
 
     "xml()"
              Get XML specification of Moscow metro.
@@ -86,11 +91,13 @@ DEPENDENCIES
     File::Share, Map::Tube, Moo, namespace::clean.
 
 SEE ALSO
-    Map::Tube, Map::Tube::Barcelona, Map::Tube::Delhi, Map::Tube::London,
-    Map::Tube::Prague, Map::Tube::Tokyo.
+    Map::Tube, Map::Tube::Barcelona, Map::Tube::Berlin, Map::Tube::Delhi,
+    Map::Tube::Kiev, Map::Tube::London, Map::Tube::Minsk, Map::Tube::NYC,
+    Map::Tube::Prague, Map::Tube::Sofia, Map::Tube::Tokyo,
+    Map::Tube::Warsaw.
 
 REPOSITORY
-    <https://github.com/Manwar/Map-Tube-Moscow>
+    <https://github.com/tupinek/Map-Tube-Moscow>
 
 AUTHOR
     Michal Špaček <mailto:skim@cpan.org>
@@ -98,10 +105,10 @@ AUTHOR
     <http://skim.cz>
 
 LICENSE AND COPYRIGHT
-     © Michal Špaček 2014
+     © 2014 Michal Špaček
      Artistic License
      BSD 2-Clause License
 
 VERSION
-    0.01
+    0.02
 

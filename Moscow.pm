@@ -11,7 +11,7 @@ use Moo;
 use namespace::clean;
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 # Get XML.
 has xml => (
@@ -31,7 +31,7 @@ __END__
 
 =head1 NAME
 
-Map::Tube::Moscow - Interface to the Moscow Tube Map.
+Map::Tube::Moscow - Interface to the Moscow Metro Map.
 
 =head1 SYNOPSIS
 
@@ -41,6 +41,7 @@ Map::Tube::Moscow - Interface to the Moscow Tube Map.
  my $station = $obj->get_node_by_id($station_id);
  my $station = $obj->get_node_by_name($station_name);
  my $route = $obj->get_shortest_route($from, $to);
+ my $metro_name = $obj->name;
  my $xml_file = $obj->xml;
 
 =head1 DESCRIPTION
@@ -58,7 +59,7 @@ For more information about Moscow Map, click L<here|https://ru.wikipedia.org/wik
 
  Constructor.
 
-=item C<get_all_routes($from, $to)>
+=item C<get_all_routes($from, $to)> [EXPERIMENTAL]
 
  Get all routes from station to station.
  Returns reference to array with Map::Tube::Route objects.
@@ -75,8 +76,13 @@ For more information about Moscow Map, click L<here|https://ru.wikipedia.org/wik
 
 =item C<get_shortest_route($from, $to)>
 
- Get shortest route between $from and $to node name. Node name is case insensitive.
- Returns back the node sequence in string.
+ Get shortest route between $from and $to node names. Node names in $from and $to are case insensitive.
+ Returns Map::Tube::Route object.
+
+=item C<name()>
+
+ Get metro name.
+ Returns string with metro name.
 
 =item C<xml()>
 
@@ -139,14 +145,20 @@ L<namespace::clean>.
 
 L<Map::Tube>,
 L<Map::Tube::Barcelona>,
+L<Map::Tube::Berlin>,
 L<Map::Tube::Delhi>,
+L<Map::Tube::Kiev>,
 L<Map::Tube::London>,
+L<Map::Tube::Minsk>,
+L<Map::Tube::NYC>,
 L<Map::Tube::Prague>,
-L<Map::Tube::Tokyo>.
+L<Map::Tube::Sofia>,
+L<Map::Tube::Tokyo>,
+L<Map::Tube::Warsaw>.
 
 =head1 REPOSITORY
 
-L<https://github.com/Manwar/Map-Tube-Moscow>
+L<https://github.com/tupinek/Map-Tube-Moscow>
 
 =head1 AUTHOR
 
@@ -156,12 +168,12 @@ L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
- © Michal Špaček 2014
+ © 2014 Michal Špaček
  Artistic License
  BSD 2-Clause License
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
